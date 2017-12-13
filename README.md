@@ -8,4 +8,4 @@ $ pip install cookiecutter
 ```
 In the directory, where you want your new microservice repo to live, run:
 ```bash
-$ cookiecutter gh:ray-ray/cookiecutter-jhhmicroservice
+$ cookiecutter gh:JawboneHealth/cookiecutter-jhhmicroservice
