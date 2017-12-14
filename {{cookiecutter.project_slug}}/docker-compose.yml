@@ -1,0 +1,13 @@
+#
+# This compose file extends/overrides the one in npgateway to mount local code for the {{ cookiecutter.project_slug }}
+# service. Bring this up in npgateway with overrides via:
+#
+# docker-compose -f docker-compose.yml -f ../{{ cookiecutter.project_slug }}/docker-compose.yml up
+#
+
+version: '3'
+
+services:
+  {{ cookiecutter.project_slug }}:
+    volumes:
+      - ../{{ cookiecutter.project_slug }}:/usr/src/app
