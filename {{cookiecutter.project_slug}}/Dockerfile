@@ -28,11 +28,6 @@ COPY {{ cookiecutter.project_slug }} /usr/src/app/{{ cookiecutter.project_slug }
 RUN pip install --index-url=https://pypi.jbnw.net/simple --extra-index-url=https://pypi.python.org/pypi --no-cache-dir -r requirements.txt
 
 #
-# Open the Flask server port
-#
-EXPOSE 5000
-
-#
 # Start the server.
 #
 CMD gunicorn -w ${GU_WORKER_COUNT} -b 0.0.0.0:5000 manage:app
