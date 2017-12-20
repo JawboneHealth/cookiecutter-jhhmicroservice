@@ -1,0 +1,14 @@
+# For now all reqs in one place 
+# TODO: split up reqs for dev/prod
+
+Flask==0.12.1
+Flask-DebugToolbar==0.10.1
+flask-marshmallow==0.7.0
+flask-restplus==0.10.1
+Flask-Script==2.0.6
+marshmallow==2.13.5
+mock==2.0.0
+pytest==3.2.1
+requests==2.13.0
+webargs==1.8.1
+gunicorn==19.7.1
