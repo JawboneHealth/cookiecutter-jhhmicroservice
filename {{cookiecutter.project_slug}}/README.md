@@ -42,6 +42,21 @@ $ cd <npgateway_DIR>
 $ docker-compose -f docker-compose.yml -f ../{{ cookiecutter.project_slug }}/docker-compose.yml up
 ```
 
+{% if (cookiecutter.use_sqlalchemy == 'True') or (cookiecutter.use_alembic == 'True') %}
+## Database 
+{% if cookiecutter.use_sqlalchemy == 'True' %}
+### Flask-SQLAlchemy
+{{ cookiecutter.project_name }} uses [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) to connect to the Maria Database.
+To create models, refer to [this](http://flask-sqlalchemy.pocoo.org/2.3/models/) and to the [SQLAlchemy Declarative 
+documentation](http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/).  
+{% endif %}
+{% if cookiecutter.use_alembic == 'True' %}
+### Alembic
+{{ cookiecutter.project_name }} uses [Alembic](http://alembic.zzzcomputing.com/en/latest/) to generate and run database 
+schema migrations.
+{% endif %}
+{% endif %}
+
 ## Tests
 There are some simple unit and integration tests written to run under pytest. After starting the service, run:
 ```bash
