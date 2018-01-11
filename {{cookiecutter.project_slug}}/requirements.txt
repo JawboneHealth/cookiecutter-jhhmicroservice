@@ -19,7 +19,7 @@ SQLAlchemy-Utils==0.32.21
 {% endif %}
 {% if cookiecutter.use_sqlalchemy == 'True' %}
 Flask-SQLAlchemy==2.2
-jhhalchemy==0.3
+jhhalchemy==0.4
 marshmallow-sqlalchemy==0.13.1
 MySQL-python==1.2.5
 SQLAlchemy==1.1.9
