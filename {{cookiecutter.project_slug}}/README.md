@@ -25,13 +25,14 @@ $ docker build -t {{ cookiecutter.project_slug }}:local .
 ### Local
 You can run the Flask server locally:
 ```bash
+$ export ENV=dev
 $ ./manage.py runserver
 ```
 
 ### Docker
 Once you build the Docker image, you can run it independently:
 ```bash
-$ docker run -d -p 5000:5000 {{ cookiecutter.project_slug }}:local
+$ docker run -e "ENV=dev" -d -p 5000:5000 {{ cookiecutter.project_slug }}:local
 ```
 
 ### docker-compose
