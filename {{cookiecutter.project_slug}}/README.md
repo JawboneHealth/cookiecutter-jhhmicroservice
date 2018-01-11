@@ -22,21 +22,22 @@ $ docker build -t {{ cookiecutter.project_slug }}:local .
 ```
 
 ## Run
+{% if cookiecutter.use_sqlalchemy != 'True' %}
 ### Local
 You can run the Flask server locally:
 ```bash
-$ export ENV=dev
 $ ./manage.py runserver
 ```
 
 ### Docker
 Once you build the Docker image, you can run it independently:
 ```bash
-$ docker run -e "ENV=dev" -d -p 5000:5000 {{ cookiecutter.project_slug }}:local
+$ docker run -d -p 5000:5000 {{ cookiecutter.project_slug }}:local
 ```
+{% endif %}
 
 ### docker-compose
-You can also run this service as part of the API gateway `docker-compose` network. If you want to mount local code into
+You can run this service as part of the API gateway `docker-compose` network. If you want to mount local code into
 the image running on that network:
 ```bash
 $ cd <npgateway_DIR>
