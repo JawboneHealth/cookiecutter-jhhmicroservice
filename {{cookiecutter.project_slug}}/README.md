@@ -22,23 +22,12 @@ $ docker build -t {{ cookiecutter.project_slug }}:local .
 ```
 
 ## Run
-{% if cookiecutter.use_sqlalchemy != 'True' %}
-### Local
-You can run the Flask server locally:
-```bash
-$ ./manage.py runserver
-```
-
-### Docker
-Once you build the Docker image, you can run it independently:
-```bash
-$ docker run -d -p 5000:5000 {{ cookiecutter.project_slug }}:local
-```
-{% endif %}
-
 ### docker-compose
-You can run this service as part of the API gateway `docker-compose` network. If you want to mount local code into
-the image running on that network:
+You can run this service as part of the API gateway's `docker-compose` network:
+1. Create an entry for this service in the gateway's `docker-compose.yml` file.
+1. Run `docker-compose up`
+
+If you want to mount local code into the image running on that network:
 ```bash
 $ cd <npgateway_DIR>
 $ docker-compose -f docker-compose.yml -f ../{{ cookiecutter.project_slug }}/docker-compose.yml up
@@ -55,7 +44,11 @@ documentation](http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/)
 {% if cookiecutter.use_alembic == 'True' %}
 ### Alembic
 {{ cookiecutter.project_name }} uses [Alembic](http://alembic.zzzcomputing.com/en/latest/) to generate and run database 
-schema migrations.
+schema migrations. When running alembic commands, the alembic.ini file is in a non-standard location in the alembic 
+directory, so you must specify it at the command line:
+```bash
+$ alembic -c alembic/alembic.ini revision --autogenerate -m 'my new stuffs'
+```
 {% endif %}
 {% endif %}
 
