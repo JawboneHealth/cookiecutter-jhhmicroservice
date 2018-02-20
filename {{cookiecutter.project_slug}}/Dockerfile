@@ -10,6 +10,12 @@ ENV PYTHONPATH /usr/src/app
 ENV GU_WORKER_COUNT=2
 
 #
+# Grab wait-for-it
+#
+ADD https://raw.githubusercontent.com/Jawbone/wait-for-it/master/wait-for-it.sh /
+RUN chmod +x /wait-for-it.sh
+
+#
 # App code dir
 #
 RUN mkdir -p /usr/src/app/{{ cookiecutter.project_slug}}
@@ -21,6 +27,9 @@ WORKDIR /usr/src/app
 COPY requirements.txt /usr/src/app/
 COPY manage.py /usr/src/app/
 COPY {{ cookiecutter.project_slug }} /usr/src/app/{{ cookiecutter.project_slug }}/
+{% if cookiecutter.use_alembic == 'True' %}
+COPY alembic /usr/src/app/alembic/
+{% endif %}
 
 #
 # Install dependencies

@@ -6,9 +6,21 @@ Flask-DebugToolbar==0.10.1
 flask-marshmallow==0.7.0
 flask-restplus==0.10.1
 Flask-Script==2.0.6
+jwt-ext==0.7.1
 marshmallow==2.13.5
 mock==2.0.0
 pytest==3.2.1
 requests==2.13.0
 webargs==1.8.1
 gunicorn==19.7.1
+{% if cookiecutter.use_alembic == 'True' %}
+alembic==0.9.1
+SQLAlchemy-Utils==0.32.21
+{% endif %}
+{% if cookiecutter.use_sqlalchemy == 'True' %}
+Flask-SQLAlchemy==2.2
+jhhalchemy==0.4
+marshmallow-sqlalchemy==0.13.1
+MySQL-python==1.2.5
+SQLAlchemy==1.1.9
+{% endif %}

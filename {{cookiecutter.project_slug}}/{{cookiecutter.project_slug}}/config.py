@@ -1,6 +1,7 @@
 """
 Configuration items for server startup.
 """
+import logging
 import os
 
 
@@ -24,6 +25,20 @@ class BaseConfig(object):
     RESTPLUS_MASK_SWAGGER = False
     RESTPLUS_ERROR_404_HELP = False
 
+    {% if cookiecutter.use_sqlalchemy == 'True' %}
+    #
+    # Mysql Pool
+    #
+    SQLALCHEMY_POOL_SIZE = 10
+    SQLALCHEMY_POOL_RECYCLE = 500
+    {% endif %}
+
+    #
+    # Logging
+    #
+    LOG_LEVEL = logging.NOTSET
+
+
 
 class DevConfig(BaseConfig):
     """
@@ -36,6 +51,32 @@ class DevConfig(BaseConfig):
     # Flask debug toolbar
     #
     DEBUG_TB_ENABLED = True
+
+    {% if cookiecutter.use_alembic == 'True' %}
+    #
+    # Alembic auto-bootstrapping
+    #
+    AUTO_UPGRADE = True
+    {% endif %}
+
+    {% if cookiecutter.use_sqlalchemy == 'True' %}
+    #
+    # SQLAlchemy path
+    #
+    USER_DB = '{{ cookiecutter.database }}'
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:root@mysql/{}'.format(USER_DB)
+    {% endif %}
+
+
+class LiveConfig(BaseConfig):
+    """
+    For the deployed Live environment
+    """
+    LOG_LEVEL = logging.WARN
+
+    {% if cookiecutter.use_alembic == 'True' %}
+    AUTO_UPGRADE = False
+    {% endif %}
 
 
 #
