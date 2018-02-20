@@ -23,11 +23,6 @@ def create_app(config={{ cookiecutter.project_slug }}.config.Config):
     :param config: app configuration module
     :return: Flask app object
     """
-    #
-    # Set the logging level according to the env
-    #
-    logging.getLogger().setLevel(config.LOG_LEVEL)
-
     {% if cookiecutter.use_alembic == 'True' %}
     if config.AUTO_UPGRADE:
         #
@@ -42,6 +37,11 @@ def create_app(config={{ cookiecutter.project_slug }}.config.Config):
         logging.info('Migrating DB to head')
         alembic.command.upgrade(alembic_config, 'head')
     {% endif %}
+
+    #
+    # Set the logging level according to the env
+    #
+    logging.getLogger().setLevel(config.LOG_LEVEL)
 
     app = flask.Flask(__name__)
     app.config.from_object(config)
