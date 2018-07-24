@@ -64,7 +64,7 @@ class DevConfig(BaseConfig):
     # SQLAlchemy path
     #
     {{ cookiecutter.project_upper }}_DB = '{{ cookiecutter.database }}'
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:root@mysql/{}'.format(USER_DB)
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:root@mysql/{}'.format({{ cookiecutter.project_upper }}_DB)
     {% endif %}
 
 
