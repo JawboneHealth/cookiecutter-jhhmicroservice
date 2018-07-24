@@ -3,7 +3,7 @@ Initializes the blueprint and namespaces.
 """
 import flask
 import flask_restplus
-import jhh{{ cookiecutter.project_slug }}.config
+import {{ cookiecutter.app_name }}.config
 
 
 def get_blueprint():
@@ -20,9 +20,9 @@ def get_blueprint():
     :return: the blueprint
     """
     v0_1_bp = flask.Blueprint(
-        jhh{{cookiecutter.project_slug}}.config.Config.V0_1_PATH,
+        {{cookiecutter.app_name}}.config.Config.V0_1_PATH,
         __name__,
-        url_prefix=jhh{{ cookiecutter.project_slug }}.config.Config.V0_1_PATH)
+        url_prefix={{ cookiecutter.app_name }}.config.Config.V0_1_PATH)
     v0_1_api = flask_restplus.Api(
         v0_1_bp,
         title='{{ cookiecutter.project_name }} API v0.1',

@@ -26,7 +26,7 @@ WORKDIR /usr/src/app
 #
 COPY requirements.txt /usr/src/app/
 COPY manage.py /usr/src/app/
-COPY {{ cookiecutter.project_slug }} /usr/src/app/{{ cookiecutter.project_slug }}/
+COPY {{ cookiecutter.app_name }} /usr/src/app/{{ cookiecutter.project_slug }}/
 {% if cookiecutter.use_alembic == 'True' %}
 COPY alembic /usr/src/app/alembic/
 {% endif %}
