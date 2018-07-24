@@ -25,6 +25,11 @@ class BaseConfig(object):
     RESTPLUS_MASK_SWAGGER = False
     RESTPLUS_ERROR_404_HELP = False
 
+    #
+    # JWT Configuration
+    #
+    JWT_SECRET = 'datalogy'  # SECURITY VULNERABILITY!
+
     {% if cookiecutter.use_sqlalchemy == 'True' %}
     #
     # Mysql Pool
@@ -68,10 +73,12 @@ class DevConfig(BaseConfig):
     {% endif %}
 
 
-class LiveConfig(BaseConfig):
+class ProdConfig(BaseConfig):
     """
     For the deployed Live environment
     """
+    ENV = 'prod'  # TODO check against pod node label
+    JWT_SECRET = os.getenv('JWT_SECRET')
     LOG_LEVEL = logging.WARN
 
     {% if cookiecutter.use_alembic == 'True' %}
