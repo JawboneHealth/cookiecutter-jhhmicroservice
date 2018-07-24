@@ -19,9 +19,9 @@ if config.attributes.get('configure_logger', True):
 #
 # Import all the models here to use autogenerate:
 #
-# import {{ cookiecutter.project_slug }}.models.<YOUR_MODEL_MODULE>
+# import jhh{{ cookiecutter.project_slug }}.models.<YOUR_MODEL_MODULE>
 # ...
-# target_metadata = {{ cookiecutter.project_slug }}.models.<YOUR_MODEL_MODULE>.<YOUR_MODEL_CLASS>.metadata
+# target_metadata = jhh{{ cookiecutter.project_slug }}.models.<YOUR_MODEL_MODULE>.<YOUR_MODEL_CLASS>.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

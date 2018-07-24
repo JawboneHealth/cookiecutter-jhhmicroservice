@@ -3,11 +3,11 @@
 flask_script app manager
 """
 import flask_script
-import {{ cookiecutter.project_slug }}.app
+import jhh{{ cookiecutter.project_slug }}.app
 
 
 def make_app_context():
-    return {'app': {{ cookiecutter.project_slug }}.app}
+    return {'app': jhh{{ cookiecutter.project_slug }}.app}
 
 
 #
@@ -15,7 +15,7 @@ def make_app_context():
 #
 # App manager
 #
-app = {{ cookiecutter.project_slug }}.app.create_app()
+app = jhh{{ cookiecutter.project_slug }}.app.create_app()
 manager = flask_script.Manager(app)
 
 #

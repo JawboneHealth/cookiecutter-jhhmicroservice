@@ -6,9 +6,9 @@ This module is responsible for Flask app, blueprint, and api initialization
 import flask
 import httplib
 import logging
-import {{ cookiecutter.project_slug }}.api.v0_1
-import {{ cookiecutter.project_slug }}.config
-import {{ cookiecutter.project_slug }}.extensions
+import jhh{{ cookiecutter.project_slug }}.api.v0_1
+import jhh{{ cookiecutter.project_slug }}.config
+import jhh{{ cookiecutter.project_slug }}.extensions
 {% if cookiecutter.use_alembic == 'True' %}
 import alembic.config
 import alembic.command
@@ -16,7 +16,7 @@ import sqlalchemy_utils
 {% endif %}
 
 
-def create_app(config={{ cookiecutter.project_slug }}.config.Config):
+def create_app(config=jhh{{ cookiecutter.project_slug }}.config.Config):
     """
     Application factory
 
@@ -58,10 +58,10 @@ def register_extensions(app):
     :param app: Flask app object
     """
     {% if cookiecutter.use_sqlalchemy == 'True' %}
-    {{cookiecutter.project_slug}}.extensions.db.init_app(app)
+    jhh{{cookiecutter.project_slug}}.extensions.db.init_app(app)
     {% endif %}
-    {{cookiecutter.project_slug}}.extensions.ma.init_app(app)
-    {{cookiecutter.project_slug}}.extensions.jwt.init_app(app)
+    jhh{{cookiecutter.project_slug}}.extensions.ma.init_app(app)
+    jhh{{cookiecutter.project_slug}}.extensions.jwt.init_app(app)
 
 
 def register_blueprints(app):
@@ -82,8 +82,8 @@ def register_blueprints(app):
 
         :return: 200 if all good, otherwise it raises an exception which returns 500
         """
-        {{cookiecutter.project_slug}}.extensions.db.session.query('1').from_statement('SELECT 1').all()
+        jhh{{cookiecutter.project_slug}}.extensions.db.session.query('1').from_statement('SELECT 1').all()
         {% endif %}
         return '', httplib.OK
 
-    app.register_blueprint({{ cookiecutter.project_slug }}.api.v0_1.get_blueprint())
+    app.register_blueprint(jhh{{ cookiecutter.project_slug }}.api.v0_1.get_blueprint())
