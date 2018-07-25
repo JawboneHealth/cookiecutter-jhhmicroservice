@@ -32,6 +32,11 @@ class BaseConfig(object):
 
     {% if cookiecutter.use_sqlalchemy == 'True' %}
     #
+    # SQLAlchemy path
+    #
+    DB_NAME = '{{ cookiecutter.database }}'
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:root@mysql/{}'.format(DB_NAME)
+    #
     # Mysql Pool
     #
     SQLALCHEMY_POOL_SIZE = 10
@@ -39,10 +44,16 @@ class BaseConfig(object):
     {% endif %}
 
     #
+    # Alembic
+    #
+    { % if cookiecutter.use_alembic == 'True' %}
+    AUTO_UPGRADE = False
+    { % endif %}
+
+    #
     # Logging
     #
     LOG_LEVEL = logging.NOTSET
-
 
 
 class DevConfig(BaseConfig):
@@ -64,26 +75,22 @@ class DevConfig(BaseConfig):
     AUTO_UPGRADE = True
     {% endif %}
 
-    {% if cookiecutter.use_sqlalchemy == 'True' %}
-    #
-    # SQLAlchemy path
-    #
-    USER_DB = '{{ cookiecutter.database }}'
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:root@mysql/{}'.format(USER_DB)
-    {% endif %}
+
+class StageConfig(BaseConfig):
+    """
+    Staging configuration.
+    """
+    ENV = 'stage'
+
 
 
 class ProdConfig(BaseConfig):
     """
-    For the deployed Live environment
+    Production Configuration
     """
     ENV = 'prod'  # TODO check against pod node label
     JWT_SECRET = os.getenv('JWT_SECRET')
     LOG_LEVEL = logging.WARN
-
-    {% if cookiecutter.use_alembic == 'True' %}
-    AUTO_UPGRADE = False
-    {% endif %}
 
 
 #
