@@ -1,7 +1,7 @@
 #
 # Dockerfile to create user service image
 #
-FROM python:2.7.13
+FROM python:2.7.15
 
 #
 # Environment Configuration

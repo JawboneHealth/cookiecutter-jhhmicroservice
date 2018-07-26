@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [1.2] - Unreleased
 ### Changed
 - Update Dockerfile to reflect new infrastructure
+- Bump Python to 2.7.15
 
 ## [1.1] - 2018-01-09
 ### Added
