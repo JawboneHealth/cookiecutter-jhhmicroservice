@@ -38,6 +38,8 @@ class BaseConfig(object):
     #
     LOG_LEVEL = logging.NOTSET
 
+    ALEMBIC_CONF = 'alembic/alembic.ini'
+
 
 
 class DevConfig(BaseConfig):
