@@ -10,9 +10,7 @@ import {{ cookiecutter.project_slug }}.api.v0_1
 import {{ cookiecutter.project_slug }}.config
 import {{ cookiecutter.project_slug }}.extensions
 {% if cookiecutter.use_alembic == 'True' %}
-import alembic.config
-import alembic.command
-import sqlalchemy_utils
+import jhhalchemy.migrate
 {% endif %}
 
 
@@ -24,18 +22,13 @@ def create_app(config={{ cookiecutter.project_slug }}.config.Config):
     :return: Flask app object
     """
     {% if cookiecutter.use_alembic == 'True' %}
-    if config.AUTO_UPGRADE:
-        #
-        # Run schema upgrades before bringing up the server.
-        #
-        if not sqlalchemy_utils.database_exists(config.SQLALCHEMY_DATABASE_URI):
-            logging.info('Creating {}'.format(config.USER_DB))
-            sqlalchemy_utils.create_database(config.SQLALCHEMY_DATABASE_URI)
-        alembic_config = alembic.config.Config(
-            'alembic/alembic.ini',
-            attributes={'configure_logger': False})
-        logging.info('Migrating DB to head')
-        alembic.command.upgrade(alembic_config, 'head')
+    #
+    # Run any new upgrades
+    #
+    if app.config.get('AUTO_UPGRADE'):
+        jhhalchemy.migrate.upgrade(app.config.get('USER_DB'),
+                                   app.config.get('SQLALCHEMY_DATABASE_URI'),
+                                   app.config.get('ALEMBIC_CONF'))
     {% endif %}
 
     #
