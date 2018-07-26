@@ -5,11 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.2] - Unreleased
-## Added
+### Added
 - Local alembic.ini file to run upgrades in the local env
 
-## [1.1] - Unreleased
-## Added
+## [1.1] - 2018-01-09
+### Added
 - Options to use Alembic and SQLAlchemy
 - Default logging level
 - Post-generation hook script
