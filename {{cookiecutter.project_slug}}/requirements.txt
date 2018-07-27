@@ -7,13 +7,13 @@ Flask-DebugToolbar==0.10.1
 flask-marshmallow==0.9.0
 flask-restplus==0.11.0
 Flask-Script==2.0.6
+gunicorn==19.9.0
 jwt-ext==1.0.0
 marshmallow==2.15.3
 mock==2.0.0
 pytest==3.6.3
 requests==2.19.1
 webargs==4.0.0
-gunicorn==19.9.0
 {% if cookiecutter.use_alembic == 'True' %}
 alembic==1.0.0
 SQLAlchemy-Utils==0.33.3
