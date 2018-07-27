@@ -26,7 +26,7 @@ def create_app(config={{ cookiecutter.project_slug }}.config.Config):
     # Run any new upgrades
     #
     if app.config.get('AUTO_UPGRADE'):
-        jhhalchemy.migrate.upgrade(app.config.get('USER_DB'),
+        jhhalchemy.migrate.upgrade(app.config.get('DB_NAME'),
                                    app.config.get('SQLALCHEMY_DATABASE_URI'),
                                    app.config.get('ALEMBIC_CONF'))
     {% endif %}
