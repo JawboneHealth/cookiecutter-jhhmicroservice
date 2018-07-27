@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.2] - Unreleased
 ### Added
+- Local alembic.ini file to run upgrades in the local env
 - ALEMBIC_CONF config
 
 ### Changed
