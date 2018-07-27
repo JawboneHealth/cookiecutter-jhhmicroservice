@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update Dockerfile to reflect new infrastructure
 - Bump Python to 2.7.15
 - Update `requirements.txt` to latest versions
+- Update config.py to reflect new dependencies
 
 ## [1.1] - 2018-01-09
 ### Added
