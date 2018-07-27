@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Use `jhhalchemy.migrate` for alembic upgrades
 - Update Dockerfile to reflect new infrastructure
 - Bump Python to 2.7.15
+- Update `requirements.txt` to latest versions
 
 ## [1.1] - 2018-01-09
 ### Added
