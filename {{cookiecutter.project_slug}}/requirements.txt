@@ -1,26 +1,27 @@
 # For now all reqs in one place 
 # TODO: split up reqs for dev/prod
 
-Flask==0.12.1
+enum34==1.1.6
+Flask==1.0.2
 Flask-DebugToolbar==0.10.1
-flask-marshmallow==0.7.0
-flask-restplus==0.10.1
+flask-marshmallow==0.9.0
+flask-restplus==0.11.0
 Flask-Script==2.0.6
-jwt-ext==0.7.1
-marshmallow==2.13.5
+jwt-ext==1.0.0
+marshmallow==2.15.3
 mock==2.0.0
-pytest==3.2.1
-requests==2.13.0
-webargs==1.8.1
-gunicorn==19.7.1
+pytest==3.6.3
+requests==2.19.1
+webargs==4.0.0
+gunicorn==19.9.0
 {% if cookiecutter.use_alembic == 'True' %}
-alembic==0.9.1
-SQLAlchemy-Utils==0.32.21
+alembic==1.0.0
+SQLAlchemy-Utils==0.33.3
 {% endif %}
 {% if cookiecutter.use_sqlalchemy == 'True' %}
-Flask-SQLAlchemy==2.2
-jhhalchemy==0.4
-marshmallow-sqlalchemy==0.13.1
+Flask-SQLAlchemy==2.3.2
+jhhalchemy==0.7.1
+marshmallow-sqlalchemy==0.14.0
 MySQL-python==1.2.5
-SQLAlchemy==1.1.9
+SQLAlchemy==1.2.10
 {% endif %}
