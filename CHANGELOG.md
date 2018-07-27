@@ -8,8 +8,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - ALEMBIC_CONF config
 
+### Changed
+- Use `jhhalchemy.migrate` for alembic upgrades
+- Update Dockerfile to reflect new infrastructure
+- Bump Python to 2.7.15
+
 ## [1.1] - 2018-01-09
-## Added
+### Added
 - Options to use Alembic and SQLAlchemy
 - Default logging level
 - Post-generation hook script
