@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.2] - Unreleased
+## Changed
+- Renamed app directory to a user-specified app name that differs from the project directory
+
 ## [1.1] - Unreleased
 ## Added
 - Options to use Alembic and SQLAlchemy
