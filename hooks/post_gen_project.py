@@ -16,5 +16,5 @@ else:
 # Clean up models if we're not using them
 #
 if not {{ cookiecutter.use_sqlalchemy }}:
-    shutil.rmtree('{{ cookiecutter.project_slug }}/models')
+    shutil.rmtree('{{ cookiecutter.app_name }}/models')
     shutil.rmtree('tests/unit/models')
