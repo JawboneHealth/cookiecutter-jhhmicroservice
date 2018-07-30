@@ -43,10 +43,10 @@ class BaseConfig(object):
     SQLALCHEMY_POOL_RECYCLE = 500
     {% endif %}
 
+    {% if cookiecutter.use_alembic == 'True' %}
     #
     # Alembic
     #
-    {% if cookiecutter.use_alembic == 'True' %}
     AUTO_UPGRADE = False
     {% endif %}
 
