@@ -46,9 +46,9 @@ class BaseConfig(object):
     #
     # Alembic
     #
-    { % if cookiecutter.use_alembic == 'True' %}
+    {% if cookiecutter.use_alembic == 'True' %}
     AUTO_UPGRADE = False
-    { % endif %}
+    {% endif %}
 
     #
     # Logging
