@@ -17,6 +17,7 @@ Variable | Description
 project_name | Human readable name of your microservice
 project_slug | Machine-friendly version of project_name (directories/code/etc. will use this)
 app_name | Importable name of your app (should differ from project_slug)
+dc_port | Port that will appear in the docker-compose.yml for the local environment
 use_sqlalchemy | True/False whether to include SQLAlchemy modules/code for MariaDB
 database | Name of the primary database
 use_alembic | True/False whether to include Alembic modules/code for MariaDB schema migrations
