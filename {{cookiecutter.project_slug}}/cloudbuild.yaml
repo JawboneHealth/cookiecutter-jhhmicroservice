@@ -1,0 +1,6 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=us.gcr.io/$PROJECT_ID/$_APP_NAME:$TAG_NAME', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['run', '--entrypoint', 'pytest', 'us.gcr.io/$PROJECT_ID/$_APP_NAME:$TAG_NAME', 'tests/unit']
+images: ['us.gcr.io/$PROJECT_ID/$_APP_NAME:$TAG_NAME']
