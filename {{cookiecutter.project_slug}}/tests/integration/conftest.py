@@ -9,4 +9,4 @@ def domain():
     """
     :return: Domain of the running service.
     """
-    return 'http://0.0.0.0:5000'
+    return 'http://0.0.0.0:{{cookiecutter.dc_port}}'

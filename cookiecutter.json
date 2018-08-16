@@ -2,6 +2,8 @@
   "project_name": "My JHH microservice",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "project_upper": "{{ cookiecutter.project_slug.upper() }}",
+  "app_name": "jhh{{ cookiecutter.project_slug }}",
+  "dc_port": 5000,
   "use_sqlalchemy": true,
   "database": "{{ '{}'.format(cookiecutter.project_slug) }}",
   "use_alembic": true
