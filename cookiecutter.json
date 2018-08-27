@@ -2,7 +2,8 @@
   "project_name": "My JHH microservice",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "project_upper": "{{ cookiecutter.project_slug.upper() }}",
-  "use_sqlalchemy": true,
+  "use_sqlalchemy": "y",
   "database": "{{ '{}'.format(cookiecutter.project_slug) }}",
-  "use_alembic": true
+  "use_alembic": "y",
+  "use_cloudbuild": "y"
 }
