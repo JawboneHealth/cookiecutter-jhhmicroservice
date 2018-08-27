@@ -1,7 +1,7 @@
 #
 # Dockerfile to create user service image
 #
-FROM python:2.7.15
+FROM python:2.7.15-slim-stretch
 
 #
 # Environment Configuration
@@ -18,7 +18,7 @@ RUN chmod +x /wait-for-it.sh
 #
 # App code dir
 #
-RUN mkdir -p /usr/src/app/{{ cookiecutter.project_slug}}
+RUN mkdir -p /usr/src/app/{{ cookiecutter.app_name}}
 WORKDIR /usr/src/app
 
 #
@@ -31,7 +31,7 @@ RUN pip install \
     --no-cache-dir -r requirements.txt
 
 COPY manage.py /usr/src/app/
-COPY {{ cookiecutter.project_slug }} /usr/src/app/{{ cookiecutter.project_slug }}/
+COPY {{ cookiecutter.app_name }} /usr/src/app/{{ cookiecutter.app_name }}/
 {% if cookiecutter.use_alembic == 'True' %}
 COPY alembic /usr/src/app/alembic/
 {% endif %}

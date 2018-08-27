@@ -9,7 +9,7 @@ $ git clone ssh://git@bitbucket.aliph.com:7999/jhh/{{ cookiecutter.project_slug 
 
 Set python version, create virtualenv, activate virtualenv, and install requirements:
 ```bash
-$ pyenv local 2.7.13
+$ pyenv local 2.7.15
 $ virtualenv <VIRTUALENV_DIR>/{{ cookiecutter.project_slug }}
 $ . <VIRTUALENV_DIR>/{{ cookiecutter.project_slug }}/bin/activate
 $ pip install -r requirements.txt

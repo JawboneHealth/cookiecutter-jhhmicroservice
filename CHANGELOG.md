@@ -8,13 +8,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Local alembic.ini file to run upgrades in the local env
 - ALEMBIC_CONF config
+- Added dc_port to cookiecutter JSON so we can specify the direct URL to the local service
 
 ### Changed
 - Use `jhhalchemy.migrate` for alembic upgrades
 - Update Dockerfile to reflect new infrastructure
-- Bump Python to 2.7.15
+- Bump Python to 2.7.15-slim
 - Update `requirements.txt` to latest versions
 - Update config.py to reflect new dependencies
+- Renamed app directory to a user-specified app name that differs from the project directory
 
 ### Fixed
 - Changed `USER_DB` to `DB_NAME` in configs
