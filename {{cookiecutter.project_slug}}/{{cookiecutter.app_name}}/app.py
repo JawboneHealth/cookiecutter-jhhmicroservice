@@ -21,6 +21,16 @@ def create_app(config={{ cookiecutter.app_name }}.config.Config):
     :param config: app configuration module
     :return: Flask app object
     """
+
+    #
+    # Set the logging level according to the env
+    #
+    logging.getLogger().setLevel(config.LOG_LEVEL)
+
+    app = flask.Flask(__name__)
+    app.config.from_object(config)
+    app.url_map.strict_slashes = False
+
     {% if cookiecutter.use_alembic == 'True' %}
     #
     # Run any new upgrades
@@ -31,14 +41,6 @@ def create_app(config={{ cookiecutter.app_name }}.config.Config):
                                    app.config.get('ALEMBIC_CONF'))
     {% endif %}
 
-    #
-    # Set the logging level according to the env
-    #
-    logging.getLogger().setLevel(config.LOG_LEVEL)
-
-    app = flask.Flask(__name__)
-    app.config.from_object(config)
-    app.url_map.strict_slashes = False
     register_extensions(app)
     register_blueprints(app)
     return app
