@@ -1,6 +1,27 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=us.gcr.io/$PROJECT_ID/$_APP_NAME:$TAG_NAME', '.']
+  args:
+  - 'build'
+  - '--tag=us.gcr.io/$PROJECT_ID/$_APP_NAME:$TAG_NAME'
+  - '.'
+  id: 'build'
+
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['run', '--entrypoint', 'pytest', 'us.gcr.io/$PROJECT_ID/$_APP_NAME:$TAG_NAME', 'tests/unit']
-images: ['us.gcr.io/$PROJECT_ID/$_APP_NAME:$TAG_NAME']
+  args:
+  - 'run'
+  - '--entrypoint'
+  - 'pytest'
+  - 'us.gcr.io/$PROJECT_ID/$_APP_NAME:$TAG_NAME'
+  - 'tests/unit'
+  id: 'test'
+
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'tag'
+  - 'us.gcr.io/$PROJECT_ID/$_APP_NAME:$TAG_NAME'
+  - 'us.gcr.io/$PROJECT_ID/$_APP_NAME:dev'
+  wait_for: ['build', 'test']
+
+images:
+- 'us.gcr.io/$PROJECT_ID/$_APP_NAME:$TAG_NAME'
+- 'us.gcr.io/$PROJECT_ID/$_APP_NAME:dev'
